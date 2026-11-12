@@ -1,0 +1,104 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Guess My Number</title>
+
+    <link rel="stylesheet" href="style.css">
+    <!-- <script src="script.js" defer></script> -->
+</head>
+<body>
+
+    <div class="game-container">
+
+        <!-- Header -->
+        <header>
+
+            <div class="top-bar">
+                <button class="btn again">↻ Again!</button>
+
+                <p class="between">Between 1 and 20</p>
+            </div>
+
+            <div class="heading">
+                <p class="subtitle">THE NUMBER CHALLENGE</p>
+
+                <h1>Guess My <span>Number!</span></h1>
+
+                <p class="description">
+                    Can you find the secret number?
+                </p>
+            </div>
+
+            <!-- Secret Number -->
+            <div class="number-wrapper">
+                <div class="number">?</div>
+            </div>
+
+        </header>
+
+        <!-- Main Game Area -->
+        <main>
+
+            <!-- Left Section -->
+            <section class="left">
+
+                <label for="guess" class="section-title">
+                    YOUR GUESS
+                </label>
+
+                <input
+                    type="number"
+                    class="guess"
+                    id="guess"
+                    min="1"
+                    max="20"
+                    placeholder="00"
+                    autocomplete="off"
+                >
+
+                <button class="btn check">
+                    Check!
+                </button>
+
+            </section>
+
+            <!-- Right Section -->
+            <section class="right">
+
+                <p class="section-title-msg">
+                    GAME STATUS
+                </p>
+
+                <p class="message">
+                    🎯 Start guessing...
+                </p>
+
+                <div class="stat label-score">
+                    <span>⚡ Score</span>
+                    <span class="score">20</span>
+                </div>
+
+                <div class="stat label-highscore">
+                    <span>🏆 Highscore</span>
+                    <span class="highscore">0</span>
+                </div>
+
+            </section>
+
+        </main>
+
+        <!-- Footer -->
+        <footer>
+            <p>GUESS SMART. SCORE HIGH.</p>
+        </footer>
+
+    </div>
+
+    <script src="script.js"></script>
+
+</body>
+</html>

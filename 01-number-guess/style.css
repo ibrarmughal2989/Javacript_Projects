@@ -1,0 +1,408 @@
+
+/* =========================
+   Global Settings
+========================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --background: #101010;
+    --card: #191919;
+    --orange: #ff8c32;
+    --white: #f5f5f5;
+    --gray: #a0a0a0;
+    --border: #303030;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: var(--background);
+    color: var(--white);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 30px;
+    transition: background 0.4s ease;
+}
+
+/* =========================
+   Game Container
+========================= */
+
+.game-container {
+    width: 100%;
+    max-width: 950px;
+}
+
+/* =========================
+   Header & Top Bar
+========================= */
+
+.top-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+}
+
+.btn {
+    font-family: inherit;
+    font-size: 16px;
+    font-weight: 700;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.25s ease;
+}
+
+.again {
+    background: #242424;
+    color: var(--orange);
+    border: 1px solid #444;
+    padding: 14px 24px;
+}
+
+.again:hover {
+    background: var(--orange);
+    color: var(--background);
+    transform: translateY(-2px);
+}
+
+.between {
+    background: #222;
+    color: var(--gray);
+    border: 1px solid var(--border);
+    padding: 10px 18px;
+    border-radius: 30px;
+    font-size: 14px;
+}
+
+/* =========================
+   Main Heading
+========================= */
+
+.heading {
+    text-align: center;
+    padding: 50px 0 35px;
+}
+
+.subtitle {
+    color: var(--orange);
+    font-size: 12px;
+    font-weight: bold;
+    letter-spacing: 4px;
+    margin-bottom: 15px;
+}
+
+h1 {
+    font-size: clamp(32px, 6vw, 60px);
+    font-weight: 800;
+    letter-spacing: -2px;
+    margin-bottom: 15px;
+}
+
+h1 span {
+    color: var(--orange);
+}
+
+.description {
+    color: var(--gray);
+    font-size: 16px;
+    line-height: 1.6;
+}
+
+/* =========================
+   Secret Number Box
+========================= */
+
+.number-wrapper {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 45px;
+}
+
+.number-wrapper::before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 1px;
+    background: linear-gradient(
+        to right,
+        transparent,
+        var(--orange),
+        transparent
+    );
+}
+
+.number {
+    position: relative;
+    z-index: 1;
+    background: #1c1c1c;
+    color: var(--orange);
+    border: 2px solid var(--orange);
+    border-radius: 20px;
+    width: 140px;
+    height: 125px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 70px;
+    font-weight: 800;
+    box-shadow: 0 0 35px rgba(255, 140, 50, 0.15);
+    transition: all 0.3s ease;
+}
+
+/* =========================
+   Main Game Layout
+========================= */
+
+main {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 25px;
+}
+
+.left,
+.right {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 18px;
+    padding: 35px;
+}
+
+.section-title {
+    display: block;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    color: var(--gray);
+    margin-bottom: 20px;
+}
+
+/* =========================
+   Left Section
+========================= */
+
+.left {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.guess {
+    background: var(--background);
+    border: 2px solid #444;
+    border-radius: 12px;
+    color: var(--white);
+    font-family: inherit;
+    font-size: 50px;
+    font-weight: 700;
+    text-align: center;
+    width: 100%;
+    max-width: 280px;
+    padding: 18px;
+    outline: none;
+    transition: all 0.3s ease;
+}
+
+.guess::placeholder {
+    color: #555;
+}
+
+.guess:focus {
+    border-color: var(--orange);
+    box-shadow: 0 0 15px rgba(255, 140, 50, 0.15);
+}
+
+/* Remove number input arrows */
+
+.guess::-webkit-inner-spin-button,
+.guess::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+.guess {
+    appearance: textfield;
+    -moz-appearance: textfield;
+}
+
+.check {
+    background: var(--orange);
+    color: var(--background);
+    width: 100%;
+    max-width: 280px;
+    padding: 16px;
+    margin-top: 20px;
+    font-size: 18px;
+}
+
+.check:hover {
+    background: #ffa85f;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(255, 140, 50, 0.2);
+}
+
+.btn:active {
+    transform: scale(0.97);
+}
+
+.btn:focus-visible {
+    outline: 2px solid var(--orange);
+    outline-offset: 4px;
+}
+
+/* =========================
+   Right Section
+========================= */
+
+.right .section-title {
+    color: var(--orange);
+}
+
+.message {
+    font-size: 22px;
+    font-weight: 700;
+    margin-bottom: 30px;
+    min-height: 30px;
+    line-height: 1.5;
+}
+
+.stat {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+    padding: 18px 0;
+    border-top: 1px solid var(--border);
+    font-size: 17px;
+    color: var(--gray);
+}
+
+.score,
+.highscore {
+    font-size: 26px;
+    font-weight: 800;
+}
+
+.score {
+    color: var(--white);
+}
+
+.highscore {
+    color: var(--orange);
+}
+
+/* =========================
+   Footer
+========================= */
+
+footer {
+    text-align: center;
+    padding-top: 35px;
+}
+
+footer p {
+    color: #777;
+    font-size: 11px;
+    letter-spacing: 3px;
+}
+
+/* =========================
+   Optional Game States
+========================= */
+
+/* Add this class when player wins */
+
+body.win {
+    background: #102419;
+}
+
+body.win .number {
+    color: #4ade80;
+    border-color: #4ade80;
+    box-shadow: 0 0 35px rgba(74, 222, 128, 0.2);
+}
+
+body.win .message {
+    color: #4ade80;
+}
+
+/* Add this class when player loses */
+
+body.lose {
+    background: #291414;
+}
+
+body.lose .message {
+    color: #ff6464;
+}
+
+body.lose .number {
+    color: #ff6464;
+    border-color: #ff6464;
+}
+
+/* =========================
+   Responsive Design
+========================= */
+
+@media (max-width: 650px) {
+
+    body {
+        padding: 20px;
+        align-items: flex-start;
+    }
+
+    .heading {
+        padding: 40px 0 30px;
+    }
+
+    main {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .left,
+    .right {
+        padding: 25px;
+    }
+
+    .number {
+        width: 110px;
+        height: 105px;
+        font-size: 55px;
+    }
+
+    .number-wrapper {
+        margin-bottom: 30px;
+    }
+
+    .again {
+        padding: 12px 16px;
+        font-size: 14px;
+    }
+
+    .between {
+        font-size: 11px;
+        padding: 10px 12px;
+    }
+
+    .message {
+        font-size: 19px;
+    }
+
+    .subtitle {
+        font-size: 10px;
+        letter-spacing: 3px;
+    }
+
+}
